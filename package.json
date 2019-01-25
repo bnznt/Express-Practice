@@ -18,9 +18,13 @@
   },
   "homepage": "https://github.com/benzJS/Express-SummaryEx#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.6.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "lowdb": "^1.0.0",
+    "md5": "^2.2.1",
+    "nanoid": "^2.0.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"
