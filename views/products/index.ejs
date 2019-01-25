@@ -1,0 +1,25 @@
+<% include ../header %>
+    <div class="container">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/products/?page=<%= parseInt(page) - 1 %>"><%= parseInt(page) - 1 %></a></li>
+                <li class="page-item"><a class="page-link" href="/products/?page=<%= page %>"><%= page %></a></li>
+                <li class="page-item"><a class="page-link" href="/products/?page=<%= parseInt(page) + 1 %>"><%= parseInt(page) + 1 %></a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+        <div class="row d-flex justify-content-between mb-3">
+            <% for(product of products) {%>
+            <div class="card" style="width: 18rem;">
+                <img src="<%= product.img %>" class="card-img-top" alt="product image">
+                <div class="card-body">
+                    <h5 class="card-title"><%= product.title %></h5>
+                    <p class="card-text"><%= product.desc %></p>
+                    <a href="#" class="btn btn-primary">Learn more</a>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+<% include ../footer %>

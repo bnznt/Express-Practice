@@ -4,6 +4,7 @@ var cookieParser = require('cookie-parser');
 var db = require('./db');
 
 var authRoute = require('./routes/auth.route');
+var productRoute = require('./routes/product.route');
 
 var app = express();
 
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.use(cookieParser('aasdlkasjdlas9421'));
 
 app.use('/auth', authRoute);
+app.use('/products', productRoute);
 
 
 app.get('/', (req, res, next) => {
