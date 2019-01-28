@@ -9,6 +9,12 @@ module.exports = {
 
         products = db.get('products').value().slice(start, end);
 
+
+        if(req.signedCookies.sessionId)
+            res.locals.cart = Object.values(db.get('sessions')
+                                    .find({ id: req.signedCookies.sessionId })
+                                    .get('cart').value()).reduce((a, b) => a + b, 0);
+
         res.render('products/index', {page: page});
     }
 }

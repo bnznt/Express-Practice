@@ -29,15 +29,11 @@ module.exports = {
     },
 
     postSignup: (req, res) => {
-        console.log(req.body);
-        var newUser = {
-            id: nanoId(10),
-            email: req.body.email,
-            passwd: md5(req.body.passwd),
-            name: req.body.name
-        }
-        db.get('users').push(newUser).write()
-        res.cookie('userId', newUser.id, {
+        req.body.id = nanoId(10);
+        req.body.passwd = md5(req.body.passwd);
+
+        db.get('users').push(req.body).write();
+        res.cookie('userId', req.body.id, {
             signed: true
         })
         res.redirect('/');
